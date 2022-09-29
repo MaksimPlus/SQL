@@ -1,0 +1,10 @@
+Пустая таблица Document имеет следующее определение:
+CREATE TABLE Document(
+DocumentID UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT (NEWID())) 
+Какой результат будет выдан после выполнения последовательности команд?
+INSERT INTO Document DEFAULT VALUES;
+INSERT INTO Document DEFAULT VALUES;
+SELECT * FROM Document;
+//
+DEFAULT VALUES-заполнит поле DocumentID значениями по умолчанию, которые будут иметь тот же тип, что и само поле. 
+

@@ -1,0 +1,32 @@
+CREATE TABLE operations (
+  Identity_Num int NOT NULL,
+  Order_ID int 
+);
+
+CREATE TABLE operationsSum (
+  Order_ID int NOT NULL,
+  Quantity int
+);
+
+INSERT INTO operations VALUES 
+  (1, 1),
+  (2, 1),
+  (3, 3),
+  (4, 2),
+  (5, 2),
+  (6, 2),
+  (7, 6);
+  
+INSERT INTO operationsSum VALUES 
+  (1, 100),
+  (1, 150),
+  (2, 250),
+  (2, 250),
+  (2, 260),
+  (3, 325),
+  (4, 444);
+
+SELECT distinct Identity_Num, operationsSum.Order_ID, Quantity
+FROM operations
+    LEFT JOIN operationsSum ON operations.Order_ID = operationsSum.Order_ID
+Order by Identity_Num

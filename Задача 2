@@ -1,0 +1,20 @@
+create table tblBook(
+[BookID] int primary key identity,
+[Name] nvarchar(50))
+insert into tblBook (Name) values
+('Война и мир'),
+('Преступление и наказание'),
+('Мастер и Маргарита'),
+('Тихий дон')
+create table tblBookInLibrary(
+[BookID] int,
+[Date] date)
+insert into tblBookInLibrary(BookID,Date) values
+(1,'20060501'),
+(3,'20040705')
+
+1)	Выбрать все книги, а поле дата должно быть заполнено только у тех книг, у которых дата регистрации больше  01.02.2005
+select tblBook.Name, tblBookInLibrary.Date from tblBook left join tblBookInLibrary on tblBook.BookID= tblBookInLibrary.BookID
+2)	Выбрать все книги у которых дата регистрации в библиотеке больше  01.02.2005 либо не задана вообще:
+select tblBook.Name, tblBookInLibrary.Date 
+from tblBook join tblBookInLibrary on tblBook.BookId = tblBookLibrary.BookId where tblBookInLibrary.Date > '2005-02-01' and Date=NULL
